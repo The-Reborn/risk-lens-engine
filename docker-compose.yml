@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: risk_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: risk_lens_db
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: risk_rabbitmq
+    ports:
+      - "5672:5672"     # RabbitMQ message broker port
+      - "15672:15672"   # RabbitMQ Management UI dashboard
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+volumes:
+  mongo_data:
