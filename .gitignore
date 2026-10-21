@@ -14,5 +14,4 @@ venv/
 Thumbs.db
 
 # my own
-helper.md
-test_script.py
+z_files/
